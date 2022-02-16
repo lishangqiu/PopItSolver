@@ -1,17 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <p class="text-pink-600">askfdl</p>
+    <table>
+      <tr>
+        <td><PopButton></PopButton></td>
+        <td><PopButton></PopButton></td>
+        <td><PopButton></PopButton></td>
+      </tr>
+    </table>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import PopButton from './components/PopButton.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    PopButton
   }
 }
 </script>
