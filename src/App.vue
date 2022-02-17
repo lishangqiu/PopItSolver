@@ -1,24 +1,18 @@
 <template>
   <div id="app">
     <p class="text-pink-600">askfdl</p>
-    <table>
-      <tr>
-        <td><PopButton></PopButton></td>
-        <td><PopButton></PopButton></td>
-        <td><PopButton></PopButton></td>
-      </tr>
-    </table>
+    <PopTable></PopTable>
   </div>
 </template>
 
 <script>
 
-import PopButton from './components/PopButton.vue'
+import PopTable from './components/PopTable.vue'
 
 export default {
   name: 'App',
   components: {
-    PopButton
+    PopTable
   }
 }
 </script>
