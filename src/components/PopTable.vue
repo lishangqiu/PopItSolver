@@ -36,7 +36,7 @@ export default {
     return {
       enabled: false,
       over: false,
-      numRows: 2
+      numRows: 1
     }
   },
 
