@@ -7,4 +7,11 @@ module.exports = {
     },
   },
   plugins: [],
+  purge: [
+    "./pages/**/*.vue", 
+    "./components/**/*.vue", 
+    "./plugins/**/*.vue",
+    "./static/**/*.vue",
+    "./store/**/*.vue"
+  ]
 }
