@@ -1,9 +1,9 @@
 <template>
-    <Motion v-model="enabled" :trigger="['scale-100','scale-105']">
-      <button class="rounded-full border-4 border-red-800 mx-0.5 my-1 align-middle"
-        @click="onClickButton();" @mouseover="over=true; getColor()" @mouseleave="over=false; getColor()" :class="color">
-      </button>
-    </Motion>
+  <Motion v-model="enabled" :trigger="['scale-100','scale-105']">
+    <button class="rounded-full border-red-800 mx-0.5 my-1 align-middle"
+      @click="onClickButton();" @mouseover="over=true; getColor()" @mouseleave="over=false; getColor()" :class="color">
+    </button>
+  </Motion>
 </template>
 
 <script>
@@ -11,9 +11,12 @@
 import Motion from 'tinymotion'
 import TableState from './TableState.js'
 
-const inactiveClass = 'bg-red-300 w-16 h-16'
-const activeClass = 'bg-red-600 w-16 h-16'
-const hoverClass = 'bg-red-400 w-16 h-16'
+const squareSide = 20
+const borderSize = 5
+
+const inactiveClass = `bg-red-300 w-${squareSide} h-${squareSide} border-${borderSize}`
+const activeClass = `bg-red-600 w-${squareSide} h-${squareSide} border-${borderSize}`
+const hoverClass = `bg-red-400 w-${squareSide} h-${squareSide} border-${borderSize}`
 
 export default {
   name: 'PopButton',
@@ -46,6 +49,9 @@ export default {
       TableState.pressButton(this.row_idx, this.idx)
       // setInterval(() => { this.trigger = false }, 100)
     }
+  },
+  created(){
+    this.borderSize = borderSize
   },
   mounted(){
     this.getColor()

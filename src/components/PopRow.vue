@@ -1,12 +1,16 @@
 <template>
   <div>
     <div class="flex items-center px-2 pb-1">
-      <button @click="onAddNewButton">
-          <img src="@/assets/add-outline.svg" class="w-9 h-9 rounded-full mr-2">
-      </button>
-      <button @click="onDelNewButton">
-          <img src="@/assets/minus-outline.svg" class="w-9 h-9 rounded-full mr-2">
-      </button>
+      <td class="flex-shrink-0">
+        <button @click="onAddNewButton">
+            <img src="@/assets/add-outline.svg" class="w-9 h-9 rounded-full mr-2">
+        </button>
+      </td>
+      <td class="flex-shrink-0">
+        <button @click="onDelNewButton">
+            <img src="@/assets/minus-outline.svg" class="flex-shrink-0 w-9 h-9 rounded-full mr-2">
+        </button>
+      </td>
       <div class="rounded-lg border-4 border-red-300 px-2 flex">
         <div v-for="(item, idx) in numButtons" :key="idx">
           <td><PopButton :idx="idx" :row_idx="row_idx"></PopButton></td>

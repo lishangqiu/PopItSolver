@@ -1,6 +1,14 @@
 <template>
-  <div id="app">
-    <PopTable></PopTable>
+  <div id="app" class="min-h-screen min-w-full mt-0 flex">
+    <div class="bg-blue-600 w-72">
+    </div>
+    <div class="flex-grow w-auto">
+      <div class="flex justify-center items-start">
+        <div class="overflow-auto">
+          <PopTable></PopTable>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -21,7 +29,5 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  margin-top: 60px;
 }
 </style>
