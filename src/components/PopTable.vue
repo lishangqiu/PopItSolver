@@ -3,17 +3,17 @@
     <table>
       <tr>
         <div class="ml-24">
-          <button @click="onAddNewRow">
+          <button @click="onAddNewRow(getNumButtons())">
           <img src="@/assets/add-outline.svg" class="w-9 h-9 rounded-full mr-10">
           </button>
-          <button @click="onDelNewRow">
+          <button @click="onDelLastRow">
               <img src="@/assets/minus-outline.svg" class="w-9 h-9 rounded-full mr-2">
           </button>
         </div>
       </tr>
-      <div v-for="(item, idx) in numRows" :key="idx">
+      <div v-for="(item, idx) in tableStates" :key="idx">
         <tr>
-          <PopRow :initnum="getNumButtons()" :row_idx="idx"></PopRow>
+          <PopRow :initnum="getNumButtons()" :row_obj="item"></PopRow>
         </tr>
       </div>
     </table>
@@ -23,7 +23,8 @@
 <script>
 
 import PopRow from './PopRow.vue'
-import TableState from './TableState.js'
+
+const INIT_NUM_BUTTONS = 3
 
 export default {
   name: 'PopTable',
@@ -32,24 +33,18 @@ export default {
   },
   data(){
     return {
-      enabled: false,
-      over: false,
-      numRows: 1
+      numRows: 1,
+      tableStates: []
     }
   },
 
   methods: {
-    onAddNewRow(){
-      this.numRows++
-    },
-    onDelNewRow(){
-      if (this.numRows <= 1){
-        return
-      }
-      this.numRows--
-    },
     getNumButtons(){
-      return TableState.getNumRows()
+      if (this.tableStates.length === 0){
+        return INIT_NUM_BUTTONS
+      }
+      // Return the last row's length
+      return this.tableStates[this.tableStates.length - 1].length
     }
   }
 

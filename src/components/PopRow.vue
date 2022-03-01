@@ -2,7 +2,7 @@
   <div>
     <div class="flex items-center px-2 pb-1">
       <td class="flex-shrink-0">
-        <button @click="onAddNewButton">
+        <button @click="$emit('add_row')">
             <img src="@/assets/add-outline.svg" class="w-9 h-9 rounded-full mr-2">
         </button>
       </td>
@@ -12,7 +12,7 @@
         </button>
       </td>
       <div class="rounded-lg border-4 border-red-300 px-2 flex">
-        <div v-for="(item, idx) in numButtons" :key="idx">
+        <div v-for="(item, idx) in rowIdx" :key="idx">
           <td><PopButton :idx="idx" :row_idx="row_idx"></PopButton></td>
         </div>
       </div>
@@ -27,7 +27,7 @@ import TableState from './TableState.js'
 
 export default {
   name: 'PopRow',
-  props: ['initnum', 'row_idx'],
+  props: ['initnum', 'rowObj'],
   components: {
     PopButton
   },
@@ -38,10 +38,6 @@ export default {
   },
 
   methods: {
-    onAddNewButton(){
-      this.numButtons++
-      TableState.insertNewButton(this.row_idx)
-    },
     onDelNewButton(){
       if (this.numButtons <= 1){
         return
